@@ -36,7 +36,7 @@ export const getPDFReadableStream = async media => {
             fit:[250,250]
         },
         { text: media.title+"("+media.year+")", style:'header'},
-        { text: media.type, style: 'subHeader' },
+        { text: "type:"+media.type+" imdbID:"+media.imdbID, style: 'subHeader' },
     ],
     defaultStyle: {
       font: "Helvetica",
@@ -47,8 +47,7 @@ export const getPDFReadableStream = async media => {
           bold: true
         },
         subHeader: {
-          fontSize: 18,
-          italics: true,
+          fontSize: 15,
           bold:true
         }
       }

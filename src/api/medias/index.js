@@ -93,7 +93,7 @@ mediaRouter.get("/:mediaId/pdf", async (req, res, next) => {
       const media = await getMedia();
       const mediaIndex = media.findIndex(media => media.imdbID === req.params.mediaId)
       if(mediaIndex!==-1){
-        res.setHeader("Content-Disposition", "attachment; filename=example.pdf")
+        res.setHeader("Content-Disposition", `attachment; filename=${media[mediaIndex].title}.pdf`)
         console.log(media[mediaIndex]);
         const source = await getPDFReadableStream(media[mediaIndex])
         const destination = res
