@@ -13,7 +13,7 @@ server.use(Express.static(publicFolderPath))
 
 const whiteList = [process.env.FE_DEV_URL, process.env.FE_PROD_URL]
 
-console.log(whiteList)
+console.log("whitelist->",whiteList)
 const corsOptions = {
   origin: (origin,corsNext) => {
     if(!origin || whiteList.indexOf(origin)!==-1){
