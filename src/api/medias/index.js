@@ -35,7 +35,7 @@ mediaRouter.post("/", checkMediaSchema, triggerBadRequest, async (req, res, next
             default:
                 postType = movieData.meta.type;
         }
-        const newMedia = { ...req.body, imdbID:movieData.meta.id, poster:movieData.meta.image.src,type:postType }
+        const newMedia = { ...req.body, title:movieData.meta.name ,imdbID:movieData.meta.id, poster:movieData.meta.image.src,type:postType }
         const mediaArray = await getMedia();
         mediaArray.push(newMedia)
         await writeMedia(mediaArray)
